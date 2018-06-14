@@ -9,7 +9,16 @@
 * [ ] Experiment with [Perline Noise and Flow Fields](https://www.youtube.com/watch?v=sor1nwNIP9A)
 * [ ] Place Arcadia's [illustration](images/sad%20person.png) in the center of the canvas
     - [ ] give it a floating effect
-* [ ] Have bunched up black spheres zipping around center
-    - Hoping that'll create a bubbling/swarm effect
 * Tried to have two spheres with independent transforms
     - Relearned that you need to utilize `push()` and `pop()` to have two different spheres have two different transforms. Otherwise, [two spheres will be attached to each other](https://niu.moe/@ilovecomputers/100105609310505240).
+
+## Wed June 06 2018
+
+* [ ] Have bunched up black spheres zipping around center
+    - Hoping that'll create a bubbling/swarm effect
+    - [ ] Create BinarySphere class
+        + Draws a pair of spheres orbiting around each other
+        + [ ] Decide on parameters to give it
+    - [ ] Create BubblingCluster class
+        + A large group of BinarySpheres
+        + [ ] Orbiting around each other?
