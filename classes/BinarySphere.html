@@ -12,17 +12,37 @@
 </head>
 <body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+<script src="https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/quicksettings.js"></script>
+<script src="https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/p5.gui.js"></script>
 <script src="BinarySphere.js"></script>
 <script>
 	let binary;
+	var scaleBinary = 1,
+		scaleBinaryMin = 1,
+		scaleBinaryMax = 5,
+		scaleBinaryStep = 0.1,
+		deltaRotate = 0.07,
+		deltaRotateMin = 0,
+		deltaRotateMax = 0.2,
+		deltaRotateStep = 0.001,
+		binaryDistance = 99,
+		binaryDistanceMin = 0,
+		binaryDistanceStep = 1;
+	let gui;
 
 	function setup() {
 		createCanvas(windowWidth, windowHeight, WEBGL);
 		binary = new BinarySphere();
+		gui = createGui('BinarySphere');
+		gui.addGlobals('deltaRotate', 'binaryDistance', 'scaleBinary');
+		// noLoop();
 	}
 
 	function draw() {
 		background(175);
+		binary.deltaRotate = deltaRotate;
+		binary.binaryDistance = binaryDistance;
+		binary.scale = scaleBinary;
 		binary.rotate();
 		binary.draw();
 	}
