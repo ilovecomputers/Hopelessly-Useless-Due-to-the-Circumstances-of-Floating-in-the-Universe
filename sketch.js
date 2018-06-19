@@ -1,9 +1,9 @@
 let binary1, binary2, binary3;
 function setup() {
 	createCanvas(windowWidth, windowHeight, WEBGL);
-	binary1 = new BinarySphere();
-	binary2 = new BinarySphere();
-	binary3 = new BinarySphere();
+	binary1 = new BinarySphere(PI / 6);
+	binary2 = new BinarySphere(PI * (5/6));
+	binary3 = new BinarySphere(PI / 4);
 }
 
 function windowResized() {

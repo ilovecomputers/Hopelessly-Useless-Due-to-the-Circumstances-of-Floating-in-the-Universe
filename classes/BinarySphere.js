@@ -1,10 +1,10 @@
 class BinarySphere {
-	constructor() {
+	constructor(startingAngle = 0) {
 		this.deltaRotate = 0.07;
 		this.binaryDistance = 99;
 		this.scale = 1;
 		this._radius = 100;
-		this._angle = 0;
+		this._angle = startingAngle;
 	}
 
 	rotate() {

@@ -23,5 +23,6 @@
                 - With that, the distance will max at 99 to prevent a gap between the spheres.
     - [ ] Create BubblingCluster class
         + A large group of randomly generated BinarySpheres
+        + You can set a start angle between 0 to PI in order to make BinarySphers appear offset.
         + [ ] Orbiting around each other?
         + [ ] How can I prevent gaps from appearing inside the cluster?
