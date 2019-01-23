@@ -23,6 +23,8 @@
                 - With that, the distance will max at 99 to prevent a gap between the spheres.
     - [ ] Create BubblingCluster class
         + A large group of randomly generated BinarySpheres
-        + You can set a start angle between 0 to PI in order to make BinarySphers appear offset.
+        + You can set a start angle between 0 to PI in order to make BinarySpheres appear offset.
+            * Not `random(0, 2*PI)` because if you set the angle of a binary to 0 or PI (no matter it's axis), they look the same. So the range of unique draws is between 0 to PI, but not including PI.
+            * I can rotate the BinarySpheres, in any orientation, by creating a random 3D vector: `p5.Vector.random3D()` 
         + [ ] Orbiting around each other?
         + [ ] How can I prevent gaps from appearing inside the cluster?
