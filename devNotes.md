@@ -19,7 +19,7 @@
     - [x] Create BinarySphere class
         + Draws a pair of spheres orbiting around each other
         + [x] Decide on parameters to give it
-            * The rate of spin changes based on binary distance and sphere radius. To keep variables as little as possible, I will keep the radius of the spheres at 100, since I can scale the binary.
+            * The rate of spin changes based on binary distance and sphere radius. To keep variables as little as possible, I will keep the radius of the spheres at 50, since I can scale the binary.
                 - With that, the distance will max at 99 to prevent a gap between the spheres.
     - [ ] Create BubblingCluster class
         + A large group of randomly generated BinarySpheres
