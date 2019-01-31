@@ -1,32 +1,28 @@
-let binary1, binary2, binary3, randomVector, randomAngle;
-function setup() {
-	createCanvas(windowWidth, windowHeight, WEBGL);
-	binary1 = new BinarySphere(PI / 6);
-	binary2 = new BinarySphere();
-	binary3 = new BinarySphere(PI / 4);
-	randomVector =  p5.Vector.random3D();
-	randomAngle = random(0, PI);
-}
+var yoff = 0.0;
 
-function windowResized() {
-	resizeCanvas(windowWidth, windowHeight);
+function setup() {
+	createCanvas(400, 400);
 }
 
 function draw() {
-	background(175);
-	binary1.rotate();
-	binary1.draw();
+	background(0);
 
-	binary2.rotate();
-	push();
-	translate(0, 150);
-	rotate(randomAngle, randomVector);
-	binary2.draw();
-	pop();
+	translate(width / 2, height / 2);
 
-	binary3.rotate();
-	push();
-	translate(0, -150);
-	binary3.draw();
-	pop();
+	var radius = 150;
+
+	beginShape();
+	var xoff = 0;
+	for (var a = 0; a < TWO_PI; a += 0.1) {
+		var offset = map(noise(xoff, yoff), 0, 1, -25, 25);
+		var r = radius + offset;
+		var x = r * cos(a);
+		var y = r * sin(a);
+		vertex(x, y);
+		xoff += 0.1;
+		// ellipse(x, y, 4, 4);
+	}
+	endShape();
+
+	yoff += 0.01;
 }
