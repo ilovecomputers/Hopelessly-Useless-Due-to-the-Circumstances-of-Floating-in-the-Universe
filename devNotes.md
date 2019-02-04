@@ -38,5 +38,5 @@
         + That ugly break at the end? A solution is discussed in [the comments](https://www.youtube.com/watch?v=rX5p-QRP6R4&lc=Uggd9j101HBdFHgCoAEC)
     - [ ] Replace BinarySphere with Blob
         + Instead of rotate, have the mutate function be called something more generic (like move?)
-    - [ ] Have different blobs color blend
+    - [x] ~~Have different blobs color blend~~ No because the blob will mask stars passing by
         + Like in [this pen](https://codepen.io/kilianso/pen/xayZwm)
