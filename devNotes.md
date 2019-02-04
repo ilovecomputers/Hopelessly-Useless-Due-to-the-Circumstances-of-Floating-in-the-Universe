@@ -36,6 +36,8 @@
     - Based on [this Shiffman video](https://www.youtube.com/watch?v=rX5p-QRP6R4)
     - Here's the [code for it](https://github.com/CodingTrain/website/blob/master/CodingChallenges/CC_036_Blobby/P5/sketch.js)
         + That ugly break at the end? A solution is discussed in [the comments](https://www.youtube.com/watch?v=rX5p-QRP6R4&lc=Uggd9j101HBdFHgCoAEC)
+            * I finally figured out how this works. You want to go in a circle in a 2D noise plane. However, you want to avoid having negative numbers (to prevent ambiguous values). Easy! Just take the absolute value of the unit circle's coordinates right? Wrong, now you created another ambiguity where the coordinates bounce between (1,0) and (0,1) back and forth four times. You want both unique coordinates AND non-zero coordinates around the circle. Easiest way to do that is to move the center of the unit circle in the noise plane to (1,1).
+            * This train of thought also made me realize that the third argument in `noise` is like a 2D slice of a cylinder in this noise space. We go through each slice in each frame, then go around in a circle, and that is how we make the blob move.
     - [ ] Replace BinarySphere with Blob
         + Instead of rotate, have the mutate function be called something more generic (like move?)
     - [x] ~~Have different blobs color blend~~ No because the blob will mask stars passing by

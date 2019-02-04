@@ -1,4 +1,4 @@
-var yoff = 0.0;
+let noiseCylinderSliceZ = 0;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -9,20 +9,29 @@ function draw() {
 
 	translate(width / 2, height / 2);
 
-	var radius = 150;
+	let radius = 150;
 
+	// This is done so the input to noise are:
+	//     * non-zero
+	//     * are unique pairs
+	//     * go in circle so they smoothly return
+	//       to their original point
+	// Learned this technique from this sketch: http://p5ide.herokuapp.com/editor#?sketch=57d45de23b7b6903001548c4﻿
+	const noiseCircleCenterOffset = 1;
+
+	stroke(255);
+	noFill();
 	beginShape();
-	var xoff = 0;
-	for (var a = 0; a < TWO_PI; a += 0.1) {
-		var offset = map(noise(xoff, yoff), 0, 1, -25, 25);
-		var r = radius + offset;
-		var x = r * cos(a);
-		var y = r * sin(a);
+	for (let pointAlongCircle = 0; pointAlongCircle < TWO_PI; pointAlongCircle += radians(1)) {
+		let noiseCircleX = noiseCircleCenterOffset + cos(pointAlongCircle);
+		let noiseCircleY = noiseCircleCenterOffset + sin(pointAlongCircle);
+		let offset = map(noise(noiseCircleX, noiseCircleY, noiseCylinderSliceZ), 0, 1, -25, 25);
+		let r = radius + offset;
+		let x = r * cos(pointAlongCircle);
+		let y = r * sin(pointAlongCircle);
 		vertex(x, y);
-		xoff += 0.1;
-		// ellipse(x, y, 4, 4);
 	}
 	endShape();
 
-	yoff += 0.01;
+	noiseCylinderSliceZ += 0.01;
 }
