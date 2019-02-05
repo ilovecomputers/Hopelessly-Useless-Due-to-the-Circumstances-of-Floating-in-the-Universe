@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/normalize/7.0.0/normalize.css">
+    <style>
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+<script src="https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/quicksettings.js"></script>
+<script src="https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/p5.gui.js"></script>
+<script src="Template.js"></script>
+<script>
+	let template;
+	var manipulable = 1,
+		manipulableMin = 1,
+		manipulableMax = 5,
+		manipulableStep = 0.1;
+	let gui;
+
+	function setup() {
+		createCanvas(windowWidth, windowHeight, WEBGL);
+		template = new Template();
+		gui = createGui('Template');
+		gui.addGlobals('manipulable');
+	}
+
+	function draw() {
+		background(175);
+		template.manipulable = manipulable;
+		template.draw();
+	}
+
+	function windowResized() {
+		resizeCanvas(windowWidth, windowHeight);
+	}
+</script>
+</body>
+</html>
