@@ -17,10 +17,18 @@
 <script src="Blob.js"></script>
 <script>
 	let blob;
-	var radianStep = 0.8,
+	var radianStep = 0.5,
 		radianStepMin = 0.1,
 		radianStepMax = 5,
-		radianStepStep = 0.1;
+		radianStepStep = 0.1,
+		radius = 150,
+		radiusMin = 10,
+		radiusMax = 1000,
+		radiusStep = 1,
+		offsetMax = 60,
+		offsetMaxMin = 1,
+		offsetMaxMax = 100,
+		offsetMaxStep = 1;
 	let gui;
 
 	function setup() {
@@ -28,11 +36,15 @@
 		blob = new Blob();
 		gui = createGui('Blob');
 		gui.addGlobals('radianStep');
+		gui.addGlobals('radius');
+		gui.addGlobals('offsetMax');
 	}
 
 	function draw() {
 		background(0);
 		blob.radianStep = radianStep;
+		blob.offsetMax = offsetMax;
+		blob.radius = radius;
 		blob.draw();
 	}
 

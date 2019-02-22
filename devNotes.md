@@ -32,7 +32,7 @@
 ## Thu Jan 24 2019
 
 * Switching back to 2D
-* [ ] Create a blobby circle
+* [x] Create a blobby circle
     - Based on [this Shiffman video](https://www.youtube.com/watch?v=rX5p-QRP6R4)
     - Here's the [code for it](https://github.com/CodingTrain/website/blob/master/CodingChallenges/CC_036_Blobby/P5/sketch.js)
         + That ugly break at the end? A solution is discussed in [the comments](https://www.youtube.com/watch?v=rX5p-QRP6R4&lc=Uggd9j101HBdFHgCoAEC)

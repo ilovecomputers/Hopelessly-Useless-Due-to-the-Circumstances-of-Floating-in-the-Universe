@@ -1,13 +1,13 @@
 class Blob {
 	constructor() {
 		this.radianStep = 1;
+		this.offsetMax = 25;
+		this.radius = 150;
 		this._noiseCylinderSliceZ = 0;
 	}
 
 	draw() {
 		push();
-
-		let radius = 150;
 
 		// This is done so the input to noise are:
 		//     * non-zero
@@ -23,8 +23,12 @@ class Blob {
 		for (let pointAlongCircle = 0; pointAlongCircle < TWO_PI; pointAlongCircle += radians(this.radianStep)) {
 			let noiseCircleX = noiseCircleCenterOffset + cos(pointAlongCircle);
 			let noiseCircleY = noiseCircleCenterOffset + sin(pointAlongCircle);
-			let offset = map(noise(noiseCircleX, noiseCircleY, this._noiseCylinderSliceZ), 0, this.radianStep, -25, 25);
-			let r = radius + offset;
+			let offset = map(
+							 noise(noiseCircleX, noiseCircleY, this._noiseCylinderSliceZ),
+							 0, this.radianStep,
+							 -this.offsetMax, this.offsetMax
+							);
+			let r = this.radius + offset;
 			let x = r * cos(pointAlongCircle);
 			let y = r * sin(pointAlongCircle);
 			vertex(x, y);
