@@ -42,3 +42,18 @@
         + Instead of rotate, have the mutate function be called something more generic (like move?)
     - [x] ~~Have different blobs color blend~~ No because the blob will mask stars passing by
         + Like in [this pen](https://codepen.io/kilianso/pen/xayZwm)
+
+## Fri Feb 22 2019
+
+* [ ] Create a star field
+    - Base it on [this starfield](https://codepen.io/maxpowa/pen/VKXmrW?editors=0010) but have stars move from top-right to bottom-left instead of going in a circle
+    - [ ] Place star field in blob
+        1. [ ] Incorporate [`createGraphics`](https://p5js.org/reference/#/p5/createGraphics) into classes
+            * After watching [Shiffman's video](https://youtu.be/TaluaAD9MKA) on this method, I realized I can incorporate it into classes for better isolation (like I did with `push` and `pop`).
+        2. [ ]  [`blend`](https://p5js.org/reference/#/p5/blend) star field layer into blob
+            * If that doesn't work, you can try using [canvas clip](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clip) by getting the [`drawingContext`](https://github.com/processing/p5.js/issues/2003) of the different layers
+    - [ ] feather fade the edges of the star blob
+
+
+
+
