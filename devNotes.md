@@ -45,7 +45,7 @@
 
 ## Fri Feb 22 2019
 
-* [ ] Create a star field
+* [x] Create a star field
     - Base it on [this starfield](https://codepen.io/maxpowa/pen/VKXmrW?editors=0010) but have stars move from top-right to bottom-left instead of going in a circle
     - [ ] Place star field in blob
         1. [ ] Incorporate [`createGraphics`](https://p5js.org/reference/#/p5/createGraphics) into classes
