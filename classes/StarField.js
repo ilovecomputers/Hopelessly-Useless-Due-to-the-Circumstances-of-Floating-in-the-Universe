@@ -30,12 +30,12 @@ class StarField {
 			s.y = s.y + this.step * s.speed;
 
 			if (s.x > this.width || s.y > this.height) {
-				this._generateRandomPointOnAxis(s);
+				this._movePointToAxis(s);
 			}
 		}
 	}
 
-	_generateRandomPointOnAxis(s) {
+	_movePointToAxis(s) {
 		s.x = random(0, this.width);
 		s.y = random(0, this.height);
 		if (s.x > s.y) { // point starts on the x axis
