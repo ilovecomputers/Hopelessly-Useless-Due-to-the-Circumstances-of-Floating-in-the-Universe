@@ -6,38 +6,47 @@ class StarField {
 		this.numberOfStars = 100;
 		this.width = width;
 		this.height = height;
+		this.step = 0.05;
 		this._stars = [];
 		this.setUp();
 	}
 
 	setUp() {
-		// Push stars to array
 		this._stars = [];
 		for (let i = 0; i < this.numberOfStars; i++) {
 			this._stars.push({
-				x: 0,
-				y: 0,
-				offset: Math.random() * 360,
-				// Weight orbit a little to be outside origin
-				orbit: (Math.random()+0.01) * max(this.width, this.height),
-				radius: Math.random() * 2,
-				vx: Math.floor(Math.random() * 10) - 5,
-				vy: Math.floor(Math.random() * 10) - 5
+				x: random(0, this.width),
+				y: random(0, this.height),
+				speed: random([2, 4, 8]),
+				radius: Math.random() * 2
 			});
 		}
 	}
 
 	update() {
-		let originX = this.width / 2;
-		let originY = this.height / 2;
-
-		for (let i = 0, x = this._stars.length; i < x; i++) {
+		for (let i = 0; i < this._stars.length; i++) {
 			let s = this._stars[i];
+			s.x = s.x + this.step * s.speed;
+			s.y = s.y + this.step * s.speed;
 
+			if (s.x > this.width || s.y > this.height) {
+				this._generateRandomPointOnAxis(s);
+			}
+		}
+	}
 
-			let rad = (frameCount * (1/(s.orbit*2 + s.offset)) + s.offset) % TAU;
-			s.x = (originX + cos(rad)*(s.orbit*2));
-			s.y = (originY + sin(rad)*(s.orbit));
+	_generateRandomPointOnAxis(s) {
+		s.x = random(0, this.width);
+		s.y = random(0, this.height);
+		if (s.x > s.y) { // point starts on the x axis
+			s.x = s.x - s.y;
+			s.y = 0;
+		} else if (s.y > s.x) { // point starts on y axis
+			s.y = s.y - s.x;
+			s.x = 0;
+		} else { // point starts on origin
+			s.x = 0;
+			s.y = 0;
 		}
 	}
 

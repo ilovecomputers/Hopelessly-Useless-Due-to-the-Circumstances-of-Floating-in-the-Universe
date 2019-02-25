@@ -20,7 +20,11 @@
 	var numberOfStars = 500,
 		numberOfStarsMin = 100,
 		numberOfStarsMax = 5000,
-		numberOfStarsStep = 1;
+		numberOfStarsStep = 1,
+		step = 0.05,
+		stepMin = 0.01,
+		stepMax = 1,
+		stepStep = 0.01;
 	let gui;
 
 	function setup() {
@@ -28,12 +32,15 @@
 		starField = new StarField(windowWidth, windowHeight);
 		gui = createGui('StarField');
 		gui.addGlobals('numberOfStars');
+		gui.addGlobals('step');
 	}
 
 	function draw() {
 		background('black');
-		if (starField.numberOfStars !== numberOfStars) {
+		if (starField.numberOfStars !== numberOfStars ||
+			starField.step !== step) {
 			starField.numberOfStars = numberOfStars;
+			starField.step = step;
 			starField.setUp();
 		}
 		starField.update();
