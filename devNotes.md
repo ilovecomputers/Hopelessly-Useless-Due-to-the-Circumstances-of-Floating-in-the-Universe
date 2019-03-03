@@ -47,11 +47,13 @@
 
 * [x] Create a star field
     - Base it on [this starfield](https://codepen.io/maxpowa/pen/VKXmrW?editors=0010) but have stars move from top-right to bottom-left instead of going in a circle
-    - [ ] Place star field in blob
+    - [x] Place star field in blob
         1. [x] Incorporate [`createGraphics`](https://p5js.org/reference/#/p5/createGraphics) into classes
             * After watching [Shiffman's video](https://youtu.be/TaluaAD9MKA) on this method, I realized I can incorporate it into classes for better isolation (like I did with `push` and `pop`).
-        2. [ ]  [`blend`](https://p5js.org/reference/#/p5/blend) star field layer into blob
-            * If that doesn't work, you can try using [canvas clip](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clip) by getting the [`drawingContext`](https://github.com/processing/p5.js/issues/2003) of the different layers
+        2. [x]  ~~[`blend`](https://p5js.org/reference/#/p5/blend) star field layer into blob~~
+            * ~~If that doesn't work, you can try using [canvas clip](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clip) by getting the [`drawingContext`](https://github.com/processing/p5.js/issues/2003) of the different layers~~
+            * The solution was [to use mask](https://forum.processing.org/two/discussion/21981/#Comment_94885)
+    - [ ] Create BlobbyStarField class based on your sketch
     - [ ] feather fade the edges of the star blob
 
 
