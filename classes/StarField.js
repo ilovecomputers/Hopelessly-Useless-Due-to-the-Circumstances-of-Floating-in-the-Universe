@@ -60,8 +60,8 @@ class StarField {
 	}
 
 	resize(width = 100, height = 100) {
-		this.width = windowWidth;
-		this.height = windowHeight;
+		this.width = width;
+		this.height = height;
 		this.graphic = createGraphics(width, height);
 		this.setUp();
 	}
