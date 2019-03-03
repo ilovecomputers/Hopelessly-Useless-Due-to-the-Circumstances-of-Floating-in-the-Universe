@@ -36,22 +36,24 @@
 	}
 
 	function draw() {
-		background('black');
+		globalsChanged();
+		starField.update();
+		starField.draw();
+		image(starField.graphic, 0, 0, starField.width, starField.height);
+	}
+
+	function windowResized() {
+		resizeCanvas(windowWidth, windowHeight);
+		starField.resize(windowWidth, windowHeight);
+	}
+
+	function globalsChanged() {
 		if (starField.numberOfStars !== numberOfStars ||
 			starField.step !== step) {
 			starField.numberOfStars = numberOfStars;
 			starField.step = step;
 			starField.setUp();
 		}
-		starField.update();
-		starField.draw();
-	}
-
-	function windowResized() {
-		resizeCanvas(windowWidth, windowHeight);
-		starField.width = windowWidth;
-		starField.height = windowHeight;
-		starField.setUp();
 	}
 </script>
 </body>

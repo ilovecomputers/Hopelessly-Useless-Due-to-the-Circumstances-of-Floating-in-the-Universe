@@ -33,7 +33,7 @@
 
 	function setup() {
 		createCanvas(windowWidth, windowHeight);
-		blob = new Blob();
+		blob = new Blob(radius, offsetMax);
 		gui = createGui('Blob');
 		gui.addGlobals('radianStep');
 		gui.addGlobals('radius');
@@ -42,15 +42,25 @@
 
 	function draw() {
 		background(0);
-		translate(windowWidth / 2, windowHeight / 2);
-		blob.radianStep = radianStep;
-		blob.offsetMax = offsetMax;
-		blob.radius = radius;
+		globalsChanged();
 		blob.draw();
+		image(blob.graphic,
+			(windowWidth / 2) - (blob.maxLength / 2), (windowHeight / 2) - (blob.maxLength / 2),
+			blob.maxLength, blob.maxLength);
 	}
 
 	function windowResized() {
 		resizeCanvas(windowWidth, windowHeight);
+	}
+
+	function globalsChanged() {
+		if (blob.offsetMax !== offsetMax ||
+		blob.radius !== radius) {
+			blob.resize(radius, offsetMax);
+		}
+		if (blob.radianStep !== radianStep) {
+			blob.radianStep = radianStep;
+		}
 	}
 </script>
 </body>

@@ -1,14 +1,11 @@
 class Blob {
-	constructor() {
+	constructor(radius = 150, offsetMax = 25) {
 		this.radianStep = 1;
-		this.offsetMax = 25;
-		this.radius = 150;
+		this.resize(radius, offsetMax);
 		this._noiseCylinderSliceZ = 0;
 	}
 
 	draw() {
-		push();
-
 		// This is done so the input to noise are:
 		//     * non-zero
 		//     * are unique pairs
@@ -17,9 +14,10 @@ class Blob {
 		// Learned this technique from this sketch: http://p5ide.herokuapp.com/editor#?sketch=57d45de23b7b6903001548c4﻿
 		const noiseCircleCenterOffset = 1;
 
-		stroke(255);
-		noFill();
-		beginShape();
+		this.graphic.clear();
+		this.graphic.stroke(255);
+		this.graphic.fill(255);
+		this.graphic.beginShape();
 		for (let pointAlongCircle = 0; pointAlongCircle < TWO_PI; pointAlongCircle += radians(this.radianStep)) {
 			let noiseCircleX = noiseCircleCenterOffset + cos(pointAlongCircle);
 			let noiseCircleY = noiseCircleCenterOffset + sin(pointAlongCircle);
@@ -31,11 +29,21 @@ class Blob {
 			let r = this.radius + offset;
 			let x = r * cos(pointAlongCircle);
 			let y = r * sin(pointAlongCircle);
-			vertex(x, y);
+			this.graphic.vertex(x, y);
 		}
-		endShape(CLOSE);
+		this.graphic.endShape(CLOSE);
 
 		this._noiseCylinderSliceZ += 0.01;
-		pop();
+	}
+
+	get maxLength() {
+		return (this.radius + this.offsetMax) * 2;
+	}
+
+	resize(radius = 150, offsetMax = 25) {
+		this.offsetMax = offsetMax;
+		this.radius = radius;
+		this.graphic = createGraphics(this.maxLength + 1, this.maxLength + 1);
+		this.graphic.translate(this.maxLength / 2, this.maxLength / 2);
 	}
 }

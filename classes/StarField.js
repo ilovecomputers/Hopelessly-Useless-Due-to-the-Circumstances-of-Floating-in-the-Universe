@@ -4,11 +4,9 @@
 class StarField {
 	constructor(width = 100, height = 100) {
 		this.numberOfStars = 100;
-		this.width = width;
-		this.height = height;
 		this.step = 0.05;
 		this._stars = [];
-		this.setUp();
+		this.resize(width, height);
 	}
 
 	setUp() {
@@ -51,14 +49,20 @@ class StarField {
 	}
 
 	draw() {
-		push();
-		noFill();
-		stroke('white');
-		strokeWeight(2);
+		this.graphic.background('black');
+		this.graphic.noFill();
+		this.graphic.stroke('white');
+		this.graphic.strokeWeight(2);
 		for (let i = 0, x = this._stars.length; i < x; i++) {
 			let s = this._stars[i];
-			ellipse(s.x, s.y, s.radius, 0);
+			this.graphic.ellipse(s.x, s.y, s.radius, 0);
 		}
-		pop();
+	}
+
+	resize(width = 100, height = 100) {
+		this.width = windowWidth;
+		this.height = windowHeight;
+		this.graphic = createGraphics(width, height);
+		this.setUp();
 	}
 }
