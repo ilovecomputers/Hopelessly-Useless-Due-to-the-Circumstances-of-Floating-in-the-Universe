@@ -25,7 +25,7 @@ class Blob {
 			let noiseCircleY = noiseCircleCenterOffset + sin(pointAlongCircle);
 			let offset = map(
 							 noise(noiseCircleX, noiseCircleY, this._noiseCylinderSliceZ),
-							 0, this.radianStep,
+							 0, 1,
 							 -this.offsetMax, this.offsetMax
 							);
 			let r = this.radius + offset;
