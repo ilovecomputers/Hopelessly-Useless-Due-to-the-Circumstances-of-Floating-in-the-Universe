@@ -63,6 +63,7 @@ class StarField {
 		this.width = width;
 		this.height = height;
 		this.graphic = createGraphics(width, height);
+		this.graphic.pixelDensity(1);
 		this.setUp();
 	}
 }

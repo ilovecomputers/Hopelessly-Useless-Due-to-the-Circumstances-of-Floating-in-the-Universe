@@ -13,6 +13,6 @@ function draw() {
 	stars.update();
 	stars.draw();
 	let starsImage = stars.graphic.get();
-	starsImage.mask(blob.graphic.get());
+	starsImage.mask(blob.graphic);
 	image(starsImage, windowWidth/2 - stars.width/2, windowHeight/2 - stars.height/2, stars.width, stars.height);
 }

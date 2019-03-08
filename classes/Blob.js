@@ -44,6 +44,7 @@ class Blob {
 		this.offsetMax = offsetMax;
 		this.radius = radius;
 		this.graphic = createGraphics(this.maxLength + 1, this.maxLength + 1);
+		this.graphic.pixelDensity(1);
 		this.graphic.translate(this.maxLength / 2, this.maxLength / 2);
 	}
 }
