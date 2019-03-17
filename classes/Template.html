@@ -19,7 +19,7 @@
 	let template;
 	var manipulable = 1,
 		manipulableMin = 1,
-		manipulableMax = 5,
+		manipulableMax = 15,
 		manipulableStep = 0.1;
 	let gui;
 
@@ -32,12 +32,21 @@
 
 	function draw() {
 		background(175);
-		template.manipulable = manipulable;
+		globalsChanged();
 		template.draw();
+		image(template.graphic,
+			windowWidth / 2 - template.maxLength / 2, windowHeight / 2 - template.maxLength / 2,
+			template.maxLength, template.maxLength)
 	}
 
 	function windowResized() {
 		resizeCanvas(windowWidth, windowHeight);
+	}
+
+	function globalsChanged() {
+		if (template.manipulable !== manipulable) {
+			template.resize(manipulable);
+		}
 	}
 </script>
 </body>

@@ -1,13 +1,21 @@
 class Template {
-	constructor() {
-		this.manipulable = 1;
-		this._private = 50;
+	constructor(manipulable = 1) {
+		this.resize(manipulable);
 	}
 
 	draw() {
-		push();
-		scale(this.manipulable);
-		sphere(this._private);
-		pop();
+		this.graphic.ellipse(this._private, this._private, this._private);
+	}
+
+	get maxLength() {
+		return this._private * 2 * this.manipulable;
+	}
+
+	resize(manipulable = 1) {
+		this.manipulable = manipulable;
+		this._private = 50;
+		this.graphic = createGraphics(this.maxLength, this.maxLength);
+		this.graphic.pixelDensity(1);
+		this.graphic.scale(this.manipulable);
 	}
 }

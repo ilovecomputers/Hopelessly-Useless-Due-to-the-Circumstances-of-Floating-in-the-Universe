@@ -54,6 +54,7 @@
             * ~~If that doesn't work, you can try using [canvas clip](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clip) by getting the [`drawingContext`](https://github.com/processing/p5.js/issues/2003) of the different layers~~
             * The solution was [to use mask](https://forum.processing.org/two/discussion/21981/#Comment_94885)
     - [ ] Create BlobbyStarField class based on your sketch
+        + [ ] Allow size to be changed
     - [ ] feather fade the edges of the star blob
 
 
