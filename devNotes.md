@@ -9,6 +9,8 @@
 * [ ] Experiment with [Perline Noise and Flow Fields](https://www.youtube.com/watch?v=sor1nwNIP9A)
 * [ ] Place Arcadia's [illustration](images/sad%20person.png) in the center of the canvas
     - [ ] give it a floating effect
+    - [ ] Image's height should be less than StarBlob's `maxLength`
+    - [ ] The max `maxLength` of the StarBlob should be 700px, so the image is not pixelated
 * Tried to have two spheres with independent transforms
     - Relearned that you need to utilize `push()` and `pop()` to have two different spheres have two different transforms. Otherwise, [two spheres will be attached to each other](https://niu.moe/@ilovecomputers/100105609310505240).
 
@@ -53,9 +55,10 @@
         2. [x]  ~~[`blend`](https://p5js.org/reference/#/p5/blend) star field layer into blob~~
             * ~~If that doesn't work, you can try using [canvas clip](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clip) by getting the [`drawingContext`](https://github.com/processing/p5.js/issues/2003) of the different layers~~
             * The solution was [to use mask](https://forum.processing.org/two/discussion/21981/#Comment_94885)
-    - [ ] Create BlobbyStarField class based on your sketch
-        + [ ] Allow size to be changed
-    - [ ] feather fade the edges of the star blob
+    - [x] Create StarBlob class based on your sketch
+        + [x] Allow size to be changed
+        + [ ] Sketch that uses StarBlob should be a percentage of window width
+    - [x] ~~feather fade the edges of the star blob~~
 
 
 

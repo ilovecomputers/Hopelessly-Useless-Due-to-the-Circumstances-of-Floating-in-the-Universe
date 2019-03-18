@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StarBlob</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/normalize/7.0.0/normalize.css">
+    <style>
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+<script src="https://bitcraftlab.github.io/p5.gui/libraries/quicksettings.js"></script>
+<script src="https://bitcraftlab.github.io/p5.gui/libraries/p5.gui.js"></script>
+<script src="Blob.js"></script>
+<script src="StarField.js"></script>
+<script src="StarBlob.js"></script>
+<script>
+	let starBlob;
+	var maxLength = 420,
+		maxLengthMin = 50,
+		maxLengthMax = 1000,
+		maxLengthStep = 1;
+	let gui;
+
+	function setup() {
+		createCanvas(windowWidth, windowHeight);
+		starBlob = new StarBlob(maxLength);
+		gui = createGui('StarBlob');
+		gui.addGlobals('maxLength');
+	}
+
+	function draw() {
+		background('Purple');
+		globalsChanged();
+		starBlob.draw();
+		image(starBlob.graphic,
+			windowWidth / 2 - starBlob.maxLength / 2, windowHeight / 2 - starBlob.maxLength / 2,
+			starBlob.maxLength, starBlob.maxLength)
+	}
+
+	function windowResized() {
+		resizeCanvas(windowWidth, windowHeight);
+	}
+
+	function globalsChanged() {
+		if (starBlob.maxLength !== maxLength) {
+			starBlob.resize(maxLength);
+		}
+	}
+</script>
+</body>
+</html>
