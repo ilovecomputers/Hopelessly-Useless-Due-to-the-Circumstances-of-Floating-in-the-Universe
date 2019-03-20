@@ -25,15 +25,15 @@ function windowResized() {
 
 function getMaxLength() {
 	let percentageOfWindowLength = PERCENTAGE_OF_WINDOW_LENGTH;
-	if (windowWidth < 600) {
+	if (windowWidth < 600) { // make it look good on mobile
 		percentageOfWindowLength = 1;
 	}
 
 	let maxLength = windowWidth * percentageOfWindowLength;
-	if (maxLength > windowHeight * percentageOfWindowLength) {
+	if (maxLength > windowHeight * percentageOfWindowLength) { // make it look good in landsacpe mode
 		maxLength = windowHeight * percentageOfWindowLength;
 	}
-	if (maxLength > 700) {
+	if (maxLength > 700) { // prevent image pixelation
 		maxLength = 700;
 	}
 
