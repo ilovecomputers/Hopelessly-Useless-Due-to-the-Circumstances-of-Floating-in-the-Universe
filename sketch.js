@@ -1,9 +1,10 @@
 const PERCENTAGE_OF_WINDOW_LENGTH = 0.65;
-let starBlob;
+let starBlob, sadPerson;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	starBlob = new StarBlob(getMaxLength());
+	sadPerson = loadImage('images/sad person.png');
 }
 
 function draw() {
@@ -11,7 +12,10 @@ function draw() {
 	starBlob.draw();
 	image(starBlob.graphic,
 		windowWidth / 2 - starBlob.maxLength / 2, windowHeight / 2 - starBlob.maxLength / 2,
-		starBlob.maxLength, starBlob.maxLength)
+		starBlob.maxLength, starBlob.maxLength);
+	image(sadPerson,
+		windowWidth / 2 - widthInBlob() / 2, windowHeight / 2 - starBlob.radius / 2,
+		widthInBlob(), starBlob.radius);
 }
 
 function windowResized() {
@@ -29,6 +33,13 @@ function getMaxLength() {
 	if (maxLength > windowHeight * percentageOfWindowLength) {
 		maxLength = windowHeight * percentageOfWindowLength;
 	}
+	if (maxLength > 700) {
+		maxLength = 700;
+	}
 
 	return maxLength;
+}
+
+function widthInBlob() {
+	return (sadPerson.width / sadPerson.height) * starBlob.radius;
 }

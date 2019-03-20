@@ -7,10 +7,10 @@
     - I imagine I'll be creating galaxy effects with shaders
     - P5.js provides a way to [input shader fragments](https://p5js.org/reference/#/p5/loadShader)
 * [ ] Experiment with [Perline Noise and Flow Fields](https://www.youtube.com/watch?v=sor1nwNIP9A)
-* [ ] Place Arcadia's [illustration](images/sad%20person.png) in the center of the canvas
+* [x] Place Arcadia's [illustration](images/sad%20person.png) in the center of the canvas
     - [ ] give it a floating effect
-    - [ ] Image's height should be less than StarBlob's `maxLength`
-    - [ ] The max `maxLength` of the StarBlob should be 700px, so the image is not pixelated
+    - [x] Image's height should be the StarBlob's radius
+    - [x] The `maxLength` of the StarBlob should be 700px, so the image is not pixelated
 * Tried to have two spheres with independent transforms
     - Relearned that you need to utilize `push()` and `pop()` to have two different spheres have two different transforms. Otherwise, [two spheres will be attached to each other](https://niu.moe/@ilovecomputers/100105609310505240).
 
@@ -59,6 +59,11 @@
         + [x] Allow size to be changed
         + [x] Sketch that uses StarBlob should be a percentage of window width
     - [x] ~~feather fade the edges of the star blob~~
+
+## Wed Mar 20 2019
+
+* [ ] For starBlob, make sure `offsetMax` is never greater than `radius/2`
+    - to fix bug where star blob's perimeter goes underneath sad person in iphone landscape mode
 
 
 

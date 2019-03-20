@@ -15,7 +15,11 @@ class StarBlob {
 
 	resize(maxLength = 420) {
 		this.maxLength = maxLength;
-		this.blob = new Blob(this.maxLength/2 - this.OFFSET_MAX, this.OFFSET_MAX);
+		this.blob = new Blob(this.radius, this.OFFSET_MAX);
 		this.stars = new StarField(this.maxLength, this.maxLength);
+	}
+
+	get radius() {
+		return this.maxLength/2 - this.OFFSET_MAX;
 	}
 }
