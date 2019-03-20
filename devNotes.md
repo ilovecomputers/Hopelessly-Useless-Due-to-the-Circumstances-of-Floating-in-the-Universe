@@ -57,7 +57,7 @@
             * The solution was [to use mask](https://forum.processing.org/two/discussion/21981/#Comment_94885)
     - [x] Create StarBlob class based on your sketch
         + [x] Allow size to be changed
-        + [ ] Sketch that uses StarBlob should be a percentage of window width
+        + [x] Sketch that uses StarBlob should be a percentage of window width
     - [x] ~~feather fade the edges of the star blob~~
 
 
