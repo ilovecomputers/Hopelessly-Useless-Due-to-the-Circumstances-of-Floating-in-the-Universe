@@ -8,7 +8,7 @@
     - P5.js provides a way to [input shader fragments](https://p5js.org/reference/#/p5/loadShader)
 * [ ] Experiment with [Perline Noise and Flow Fields](https://www.youtube.com/watch?v=sor1nwNIP9A)
 * [x] Place Arcadia's [illustration](images/sad%20person.png) in the center of the canvas
-    - [ ] give it a floating effect
+    - [x] give it a floating effect
     - [x] Image's height should be the StarBlob's radius
     - [x] The `maxLength` of the StarBlob should be 700px, so the image is not pixelated
 * Tried to have two spheres with independent transforms
