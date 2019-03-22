@@ -40,6 +40,10 @@ class Blob {
 		return (this.radius + this.offsetMax) * 2;
 	}
 
+	get minLength() {
+		return (this.radius - this.offsetMax) * 2;
+	}
+
 	resize(radius = 150, offsetMax = 25) {
 		this.offsetMax = offsetMax;
 		this.radius = radius;

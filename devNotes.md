@@ -65,6 +65,10 @@
 * [ ] For starBlob, make sure `offsetMax` is never greater than `radius/2`
     - to fix bug where star blob's perimeter goes underneath sad person in iphone landscape mode
 
+## Thu Mar 21 2019
+
+* [ ] Embed Bandcamp player of "Science is My Girlfriend"
+
 
 
 
