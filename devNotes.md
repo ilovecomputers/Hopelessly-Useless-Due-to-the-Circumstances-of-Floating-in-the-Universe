@@ -6,7 +6,7 @@
 * [x] ~~Read [The Book of Shaders](https://thebookofshaders.com/)~~
     - I imagine I'll be creating galaxy effects with shaders
     - P5.js provides a way to [input shader fragments](https://p5js.org/reference/#/p5/loadShader)
-* [ ] Experiment with [Perline Noise and Flow Fields](https://www.youtube.com/watch?v=BjoM9oKOAKY)
+* [x] ~~Experiment with [Perline Noise and Flow Fields](https://www.youtube.com/watch?v=BjoM9oKOAKY)~~ I rather prefer the solid color background
 * [x] Place Arcadia's [illustration](images/sad%20person.png) in the center of the canvas
     - [x] give it a floating effect
     - [x] Image's height should be the StarBlob's radius
@@ -68,6 +68,7 @@
 ## Thu Mar 21 2019
 
 * [x] Embed Bandcamp player of "Science is My Girlfriend"
+* [x] Place Credit to Arcadia
 
 
 

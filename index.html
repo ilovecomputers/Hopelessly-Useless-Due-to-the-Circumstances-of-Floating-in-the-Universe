@@ -9,10 +9,28 @@
         canvas {
             display: block;
         }
+        #info {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: monospace;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 1rem;
+        }
+        #info a {
+            color: #99bafa;
+        }
+        #info a:visited {
+            color: #ac9adb;
+        }
     </style>
 </head>
 <body>
-<iframe style="border: 0; width: 100%; height: 42px; position: fixed; bottom: 0;" src="https://bandcamp.com/EmbeddedPlayer/album=1749055632/size=small/bgcol=333333/linkcol=9a64ff/track=1475882624/transparent=true/" seamless><a href="http://neatbeats.bandcamp.com/album/cosmic-surgery">Cosmic Surgery by neat beats</a></iframe>
+<p id="info">Illustration by <a href="https://arcadian98.wixsite.com/artinfo">Arcadia</a>. Code by <a
+        href="https://www.ilovecomputers.org/">i❤computers</a>. Click the play button below to set the mood!</p>
+<iframe style="border: 0; width: 100%; height: 42px; position: absolute; bottom: 0; left: 0;" src="https://bandcamp.com/EmbeddedPlayer/album=1749055632/size=small/bgcol=333333/linkcol=9a64ff/track=1475882624/transparent=true/" seamless><a href="http://neatbeats.bandcamp.com/album/cosmic-surgery">Cosmic Surgery by neat beats</a></iframe>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
 <script src="classes/Blob.js"></script>
 <script src="classes/StarField.js"></script>
